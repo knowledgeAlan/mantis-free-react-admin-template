@@ -3,6 +3,7 @@ import { lazy } from 'react';
 // project import
 import Loadable from 'components/Loadable';
 import Dashboard from 'layout/Dashboard';
+import Balance from "../pages/balance/Balance"
 
 const Color = Loadable(lazy(() => import('pages/component-overview/color')));
 const Typography = Loadable(lazy(() => import('pages/component-overview/typography')));
@@ -11,20 +12,26 @@ const DashboardDefault = Loadable(lazy(() => import('pages/dashboard/index')));
 
 // render - sample page
 const SamplePage = Loadable(lazy(() => import('pages/extra-pages/sample-page')));
+const AuthLogin = Loadable(lazy(() => import('pages/authentication/login')));
 
 // ==============================|| MAIN ROUTING ||============================== //
 
 const MainRoutes = {
   path: '/',
   element: <Dashboard />,
+  // element: <AuthLogin />,
   children: [
     {
       path: '/',
-      element: <DashboardDefault />
+      element: <Dashboard />
     },
     {
       path: 'color',
       element: <Color />
+    },
+    {
+      path: 'balance',
+      element: <Balance />
     },
     {
       path: 'dashboard',
